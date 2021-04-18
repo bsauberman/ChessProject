@@ -62,8 +62,10 @@ def main():
                     if move in validMoves:
                         gs.makeMove(move)
                         moveMade = True
-                    sqSelected = () #reset user clicks
-                    playerClicks = []
+                        sqSelected = () #reset user clicks
+                        playerClicks = []
+                    else:
+                        playerClicks = [sqSelected]
                 #key handler
             elif e.type == p.KEYDOWN:
                 if e.key == p.K_z: #undo when 'z' is pressed
@@ -71,11 +73,10 @@ def main():
                     moveMade = True
         if moveMade:
             validMoves = gs.getValidMoves()
-            print("Updated Valid Moves:\n")
+            print("\nUpdated Valid Moves:")
             count = 0
             for i in range(len(validMoves)):
-                if(validMoves[i].pieceMoved[1] == 'K'):
-                    print(str(count))
+                if(validMoves[i].pieceMoved[1] == 'B'):
                     print(validMoves[i].moveID)
                     count+=1
             moveMade = False
