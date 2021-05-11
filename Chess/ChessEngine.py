@@ -32,8 +32,8 @@ class GameState():
         self.wKingLoc = (7, 4)
         self.bKingLoc = (0, 4)
 
-        self.checkMate = False
-        self.staleMate = False
+        self.checkmate = False
+        self.stalemate = False
 
         self.enpessantPossible = () #coordinates for the square where en pessant capture is possible
         self.currentCastlingRight = CastleRights(True, True, True, True)
@@ -172,12 +172,12 @@ class GameState():
 
         if(len(moves)) == 0: #checkmate or stalemate
             if self.inCheck():
-                self.checkMate = True
+                self.checkmate = True
             else:
-                self.staleMate = True
+                self.stalemate = True
         else:
-            self.checkMate = False
-            self.staleMate = False
+            self.checkmate = False
+            self.stalemate = False
 
         self.enpessantPossible = tempEnpessantPossible
         self.currentCastlingRight = tempCastleRights
